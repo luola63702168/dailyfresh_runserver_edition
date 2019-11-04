@@ -1,1 +1,1 @@
-# dailyfresh_runserver_edition
+# 这是dailyfresh的可以直接runserver的版本
