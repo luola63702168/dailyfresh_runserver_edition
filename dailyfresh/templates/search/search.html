@@ -32,7 +32,7 @@
 				        <a href="/search?q={{ query }}&page={{ pindex }}">{{ pindex }}</a>
                     {% endif %}
 				{% endfor %}
-                {% if spage.has_next %}
+                {% if page.has_next %}
 				<a href="/search?q={{ query }}&page={{ page.next_page_number }}">下一页></a>
                 {% endif %}
 			</div>

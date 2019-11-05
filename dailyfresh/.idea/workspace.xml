@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8237aec5-5bff-4b6f-a21a-cd6747db5f5d" name="Default" comment="" />
+    <list default="true" id="8237aec5-5bff-4b6f-a21a-cd6747db5f5d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyfresh/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyfresh/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/MAIN_06843c6azcmu41l3.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/MAIN_9l3yhsg9umc1f9oh.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/MAIN_a3ldaenm28b32mb7.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/MAIN_elhh8aht1o79jvyo.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/MAIN_s5b765cgxhhsusps.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/_MAIN_5.toc" beforeDir="false" />
+    </list>
     <ignored path="dailyfresh.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -68,6 +78,9 @@
       <find>查看</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -114,7 +127,6 @@
         <option value="$PROJECT_DIR$/templates/static_base.html" />
         <option value="$PROJECT_DIR$/templates/base_detail_list.html" />
         <option value="$PROJECT_DIR$/apps/goods/models.py" />
-        <option value="$PROJECT_DIR$/templates/search/search.html" />
         <option value="$PROJECT_DIR$/templates/detail.html" />
         <option value="$PROJECT_DIR$/apps/goods/views.py" />
         <option value="$PROJECT_DIR$/templates/search/indexes/goods/goodssku_test.txt" />
@@ -122,22 +134,34 @@
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/static_index.html" />
         <option value="$PROJECT_DIR$/dailyfresh/settings.py" />
+        <option value="$PROJECT_DIR$/templates/search/search.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-112" />
-    <option name="y" value="336" />
+    <option name="x" value="-420" />
+    <option name="y" value="284" />
     <option name="width" value="3756" />
     <option name="height" value="2172" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dailyfresh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dailyfresh" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,11 +331,12 @@
       <workItem from="1572783423360" duration="9127000" />
       <workItem from="1572796024830" duration="221000" />
       <workItem from="1572836219305" duration="2664000" />
+      <workItem from="1572947435324" duration="561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292692000" />
+    <option name="totallyTimeSpent" value="293253000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -323,9 +348,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-56" y="168" width="1878" height="1086" extended-state="0" />
+    <frame x="-210" y="142" width="1878" height="1086" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49956784" visible="true" weight="0.1510989" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49956784" visible="true" weight="0.15274726" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50043213" side_tool="true" weight="0.20715725" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -336,7 +361,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32879817" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49943438" weight="0.2703732" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49943438" weight="0.40336135" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005656" side_tool="true" weight="0.3866944" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.13756613" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -596,20 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/search/search1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/search/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -684,13 +695,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/README" />
     <entry file="file://$PROJECT_DIR$/templates/base_detail_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -702,16 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="70" column="10" lean-forward="true" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dailyfresh/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
-          <folding>
-            <element signature="e#383#392#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -746,6 +741,30 @@
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyfresh/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+          <folding>
+            <element signature="e#383#392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search/search1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>
