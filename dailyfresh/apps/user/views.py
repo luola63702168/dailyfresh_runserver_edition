@@ -274,7 +274,7 @@ class UserOrderView(LoginRequiredMixin,View):
         orders =OrderInfo.objects.filter(user=user).order_by('-create_time')  # 在外键的关联查询中，也可以（filter(user_id=user.id)）---PS:Django中的外键为我们极大的方便了数据的查询（例：外键.外键.外键.字段）
         # 遍历获取每个订单对应的订单商品信息
         for order in orders:
-            order_skus = OrderGoods.objects.filter(order_id=order.id)
+            order_skus = OrderGoods.objects.filter(order_id=order.order_id)
             # 获取每个商品的小计
             for order_sku in order_skus:
                 amount = order_sku.count*order_sku.price

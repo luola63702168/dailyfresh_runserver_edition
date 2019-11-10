@@ -47,7 +47,7 @@ class OrderPlaceView(LoginRequiredMixin,View):
         transit_price = 10  # 写死
         # 实付款
         total_pay = transit_price + total_price
-        addrs = Address.objects.filter(user)
+        addrs = Address.objects.filter(user=user)
 
         # 组织上下文
         sku_ids = ','.join(sku_ids)  # [1,25]->1,25
