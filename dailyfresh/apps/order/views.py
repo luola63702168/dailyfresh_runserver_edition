@@ -367,6 +367,7 @@ class CheckPayView(View):
 
         # 接收参数
         order_id = request.POST.get('order_id')
+        # print(order_id,"*"*100)
 
         # 校验参数
         if not order_id:
@@ -383,7 +384,7 @@ class CheckPayView(View):
         # 业务处理:使用python sdk调用支付宝的支付接口
         # 初始化
         alipay = AliPay(
-            appid="2016090800464054",  # 应用id
+            appid="2016101300676042",  # 应用id
             app_notify_url=None,  # 默认回调url
             app_private_key_path=os.path.join(settings.BASE_DIR, 'apps/order/app_private_key.pem'),
             alipay_public_key_path=os.path.join(settings.BASE_DIR, 'apps/order/alipay_public_key.pem'),
@@ -394,6 +395,7 @@ class CheckPayView(View):
 
         # 调用支付宝的交易查询接口
         while True:
+
             response = alipay.api_alipay_trade_query(order_id)
 
             # response = {
@@ -430,7 +432,7 @@ class CheckPayView(View):
                 order.order_status = 4 # 待评价
                 order.save()
                 # 返回结果
-                return JsonResponse({'res':3, 'message':'支付成功'})
+                return JsonResponse({'res':10, 'message':'支付成功'})
             elif code == '40004' or (code == '10000' and response.get('trade_status') == 'WAIT_BUYER_PAY'):
                 # 等待买家付款
                 # 40004--业务处理失败（这是一个比较特殊的状态码），可能一会就会成功
@@ -441,6 +443,7 @@ class CheckPayView(View):
                 # 支付出错
                 print(code)
                 return JsonResponse({'res':4, 'errmsg':'支付失败'})
+
 # /order/comment/(?P<order_id>.+)
 class CommentView(LoginRequiredMixin, View):
     """订单评论"""
