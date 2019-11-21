@@ -17,77 +17,6 @@ from django_redis import get_redis_connection  # 使历史浏览记录存储在r
 import re
 # Create your views here.
 
-
-# /user/register
-def register(request):
-    """注册"""
-    if request.method=='GEt':
-        # 显示注册页面
-        return render(request, 'register.html')
-    else:
-        # 进行注册处理
-        # 接受数据
-        username = request.POST.get('user_name')
-        password = request.POST.get('pwd')
-        email = request.POST.get('email')
-        allow = request.POST.get('allow')
-        # 进行数据校验
-        if not all([username, password, email]):
-            return render(request, 'register.html', {'errmsg': '数据不完整'})
-        if not re.match(r'^[a-z0-9][\w.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$', email):
-            return render(request, 'register.html', {'errmsg': '邮箱格式不正确'})
-        if allow != 'on':
-            return render(request, 'register.html', {'errmsg': '请同意协议'})
-        # 校验用户名是否重复(get返回一条且只能有一条的数据，查不到的话会返回一个不存在的异常)
-        try:
-            user = User.objects.get(username=username)
-        except User.DoesNotExist:
-            # 用户名不存在
-            user = None
-        if user:
-            # 用户名已存在
-            return render(request, 'register.html', {'errmsg': '用户名已存在'})
-        # 进行业务处理：用户注册
-        user = User.objects.create_user(username, email, password)  # 使用自带的用户认证系统的创建函数create_user()
-        # 默认直接激活，我们修改这个激活
-        user.is_active = 0
-        user.save()
-        # 返回应答
-        return redirect(reverse('goods:index'))  # 反向解析
-
-
-def register_handle(request):
-    "进行注册处理"
-    # 接受数据
-    username = request.POST.get('user_name')
-    password = request.POST.get('pwd')
-    email = request.POST.get('email')
-    allow = request.POST.get('allow')
-    # 进行数据校验
-    if not all([username, password, email]):
-        return render(request,'register.html', {'errmsg': '数据不完整'})
-    if not re.match(r'^[a-z0-9][\w.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$',email):
-        return render(request, 'register.html', {'errmsg': '邮箱格式不正确'})
-    if allow != 'on':
-        return render(request, 'register.html', {'errmsg': '请同意协议'})
-    # 校验用户名是否重复(get返回一条且只能有一条的数据，查不到的话会返回一个不存在的异常)
-    try:
-        user = User.objects.get(username=username)
-    except User.DoesNotExist:
-        # 用户名不存在
-        user = None
-    if user:
-        # 用户名已存在
-        return render(request, 'register.html', {'errmsg': '用户名已存在'})
-    # 进行业务处理：用户注册
-    user = User.objects.create_user(username, email, password)  # 使用自带的用户认证系统的创建函数create_user()
-    # 默认直接激活，我们修改这个激活
-    user.is_active = 0
-    user.save()
-    # 返回应答
-    return redirect(reverse('goods:index'))  # 反向解析
-
-
 # /user/register 类视图不同请求对应不同函数
 # GET PUT DELETE OPTION
 class ReisterView(View):
@@ -382,6 +311,74 @@ class AddressView(LoginRequiredMixin,View):
 
 
 
+# /user/register
+def register(request):
+    """注册"""
+    if request.method=='GEt':
+        # 显示注册页面
+        return render(request, 'register.html')
+    else:
+        # 进行注册处理
+        # 接受数据
+        username = request.POST.get('user_name')
+        password = request.POST.get('pwd')
+        email = request.POST.get('email')
+        allow = request.POST.get('allow')
+        # 进行数据校验
+        if not all([username, password, email]):
+            return render(request, 'register.html', {'errmsg': '数据不完整'})
+        if not re.match(r'^[a-z0-9][\w.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$', email):
+            return render(request, 'register.html', {'errmsg': '邮箱格式不正确'})
+        if allow != 'on':
+            return render(request, 'register.html', {'errmsg': '请同意协议'})
+        # 校验用户名是否重复(get返回一条且只能有一条的数据，查不到的话会返回一个不存在的异常)
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            # 用户名不存在
+            user = None
+        if user:
+            # 用户名已存在
+            return render(request, 'register.html', {'errmsg': '用户名已存在'})
+        # 进行业务处理：用户注册
+        user = User.objects.create_user(username, email, password)  # 使用自带的用户认证系统的创建函数create_user()
+        # 默认直接激活，我们修改这个激活
+        user.is_active = 0
+        user.save()
+        # 返回应答
+        return redirect(reverse('goods:index'))  # 反向解析
+
+
+def register_handle(request):
+    "进行注册处理"
+    # 接受数据
+    username = request.POST.get('user_name')
+    password = request.POST.get('pwd')
+    email = request.POST.get('email')
+    allow = request.POST.get('allow')
+    # 进行数据校验
+    if not all([username, password, email]):
+        return render(request,'register.html', {'errmsg': '数据不完整'})
+    if not re.match(r'^[a-z0-9][\w.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$',email):
+        return render(request, 'register.html', {'errmsg': '邮箱格式不正确'})
+    if allow != 'on':
+        return render(request, 'register.html', {'errmsg': '请同意协议'})
+    # 校验用户名是否重复(get返回一条且只能有一条的数据，查不到的话会返回一个不存在的异常)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        # 用户名不存在
+        user = None
+    if user:
+        # 用户名已存在
+        return render(request, 'register.html', {'errmsg': '用户名已存在'})
+    # 进行业务处理：用户注册
+    user = User.objects.create_user(username, email, password)  # 使用自带的用户认证系统的创建函数create_user()
+    # 默认直接激活，我们修改这个激活
+    user.is_active = 0
+    user.save()
+    # 返回应答
+    return redirect(reverse('goods:index'))  # 反向解析
 
 
 
