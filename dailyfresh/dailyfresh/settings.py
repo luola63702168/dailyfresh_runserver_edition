@@ -12,11 +12,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import sys  # 使apps在搜索路径中（避免apps.user包含文件）
+import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# 加在第0个位置，加apps这个目录即可。BASE_DIR（项目在哪，BASE_DIR就是这个项目的绝对路径）
+# apps
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -40,9 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'tinymce',  # 富文本编辑器
-    'haystack', # 注册全文检索框架
-    # 为什么会变黄？因为pycharm找不到这个环境变量，但是项目运行的时候是不会有问题的
+    'haystack',  # 注册全文检索框架
     'user',  # 用户模块
     'goods',  # 商品模块
     'cart',  # 购物车模块
@@ -65,7 +64,6 @@ ROOT_URLCONF = 'dailyfresh.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 配置模板文件
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -81,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dailyfresh.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -96,8 +93,8 @@ DATABASES = {
     }
 }
 
-# django认证系统使用的模型类
-AUTH_USER_MODEL='user.User'
+# user认证
+AUTH_USER_MODEL = 'user.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -112,36 +109,28 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# static
 STATIC_URL = '/static/'
-# 配置静态文件夹
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# 富文本编辑器配置
+# 富文本
 TINYMCE_DEFAULT_CONFIG = {
-    # 主题：高级
     'theme': 'advanced',
-    # 宽高
     'width': 600,
     'height': 400,
 }
-# 发送邮件的配置
+# email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# 发邮件的smtp服务器地址
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-# 发送邮件的邮箱
 EMAIL_HOST_USER = 'luola63702168@163.com'
-# 在邮箱中设置的客户端授权密码
 EMAIL_HOST_PASSWORD = 'La5205920'
-# 收件人看到的发件人
 EMAIL_FROM = '天天生鲜<luola63702168@163.com>'
 
-
-# Django的缓存配置(使用redis作为缓存)
+# redis缓存
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -151,38 +140,28 @@ CACHES = {
         }
     }
 }
-
-# 配置session存储于缓存中，而缓存则已经设置为redis作为缓存存储了
+# session
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"   # 为什么是 default？ 参考了settings中的缓存配置，是为了连接到redis
+SESSION_CACHE_ALIAS = "default"  # 为什么是 default？ 参考了settings中的缓存配置，是为了连接到redis
 
-# 配置未登录状态访问用户中心时应跳转的位置（默认的是/accounts/profile/）
 LOGIN_URL = '/user/login'
 
-# 设置Django的文件存储类
+# Django的文件存储类
 DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
 
-# 设置fdfs使用的client.conf文件路径
-FDFS_CLIENT_CONF= './utils/fdfs/client.conf'
-
-# 设置fdfs存储服务器上nginx的IP和端口号
+# fdfs
+FDFS_CLIENT_CONF = './utils/fdfs/client.conf'
 FDFS_URL = 'http://192.168.233.142:8888/'
 
 # 全文检索框架的配置
 HAYSTACK_CONNECTIONS = {
     'default': {
-        # 使用whoosh引擎
         # 'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
-        # 索引文件路径
         'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     }
 }
 
-# 当添加、修改、删除数据时，自动生成索引
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
-# 指定搜索结果每页显示的条数
-HAYSTACK_SEARCH_RESULTS_PER_PAGE=1
-
-
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 1
